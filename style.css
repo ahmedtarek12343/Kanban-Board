@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f8f9fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+h2 {
+  position: sticky;
+  top: -1rem; /* This is what tells it when to stick */
+  background-color: #e3e4e8; /* Match list background so it looks clean */
+  padding: 1rem 0;
+  z-index: 300;
+}
+
+.board {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.list {
+  background-color: #e3e4e8;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 20rem;
+  min-height: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 30rem;
+  overflow-y: auto;
+  scrollbar-width: thin; /* "auto" | "thin" | "none" */
+  scrollbar-color: #888 transparent;
+}
+
+.list h2 {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  color: #333;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: 0.2s all;
+}
+
+.card i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.card:hover i {
+  opacity: 1;
+}
+
+.card:active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: grabbing;
+}
+
+.list.over {
+  background-color: #d1d3d8;
+}
+
+.add__task {
+  margin-top: 7rem;
+  padding: 1.5rem 3rem;
+  border: 0;
+  outline: none;
+  border-radius: 10rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  background-color: #ffffff00;
+  backdrop-filter: blur(5px);
+  font-size: 1rem;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.add__task:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+}
+
+.task__form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 4rem 2rem;
+  background-color: #f8f9fc84;
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  border-radius: 2rem;
+  width: 30rem;
+  opacity: 0;
+  transition: 0.5s all;
+
+  @media only screen and (max-width: 500px) {
+    width: 20rem;
+  }
+}
+
+#closeForm {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+#closeForm:hover {
+  color: red;
+}
+
+.task__form.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.task__form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.task__form input {
+  width: 90%;
+  margin-bottom: 3rem;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.task__form select {
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.overlay.shown {
+  display: block;
+}
+
+#addToBoard {
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  margin-left: 8rem;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  transition: 0.5s all;
+  cursor: pointer;
+
+  @media only screen and (max-width: 500px) {
+    margin-left: 1rem;
+  }
+}
+
+#addToBoard:hover {
+  background-color: #ffffff;
+}

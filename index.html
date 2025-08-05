@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="task__form">
+      <form action="">
+        <i class="ri-close-line" id="closeForm"></i>
+        <label for="task__name">Task Name</label>
+        <input type="text" id="task__name" />
+        <label for="task_progress">Task Progress</label>
+        <select name="progress" id="task_progress">
+          <option value="toDo">To Do</option>
+          <option value="inProgress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="submit" id="addToBoard">Add</button>
+      </form>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>Simple Kanban Board</h1>
+
+      <div class="board">
+        <!-- LIST 1 -->
+        <div class="list" id="list1" data-toDo>
+          <h2>To Do</h2>
+        </div>
+
+        <!-- List 2 -->
+        <div class="list" id="list2" data-inProgress>
+          <h2>In Progress</h2>
+        </div>
+
+        <!-- LIST 3 -->
+        <div class="list" id="list3" data-done>
+          <h2>Done</h2>
+        </div>
+      </div>
+      <button class="add__task" id="addTask">Add a task</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
